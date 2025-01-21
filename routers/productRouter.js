@@ -3,15 +3,17 @@ const { getAllproduct, createProduct, updateProduct, deleteProduct, getMyproduct
 const checkLogin = require("../middlewares/loginMiddleware");
 const multer = require("multer")
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, 'public')
-    },
-    filename: function (req, file, cb) {
-      const uniquePrefix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-      cb(null, uniquePrefix+file.originalname)
-    }
-  })
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//       cb(null, 'public')
+//     },
+//     filename: function (req, file, cb) {
+//       const uniquePrefix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+//       cb(null, uniquePrefix+file.originalname)
+//     }
+//   })
+const storage = multer.memoryStorage();
+
 
 
 const upload = multer({ storage:storage })

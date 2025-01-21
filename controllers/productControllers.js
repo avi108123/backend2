@@ -28,8 +28,10 @@ async function createProduct(req, res) {
   console.log("hello world")
   console.log(req.file);
 
+  const fileBase64 = `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`;
 
- let result = await cloudinary.uploader.upload(req.file.path)
+//  let result = await cloudinary.uploader.upload(req.file.path)
+ let result = await cloudinary.uploader.upload(fileBase64)
   console.log(result);
 
   
