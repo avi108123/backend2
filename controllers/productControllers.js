@@ -25,7 +25,7 @@ async function getMyproducts(req,res){
 
 async function createProduct(req, res) {
  try {
-
+  console.log("hello world")
   console.log(req.file);
 
 
