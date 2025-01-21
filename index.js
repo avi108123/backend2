@@ -11,7 +11,11 @@ const cors = require("cors")
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: '*', // Replace * with your frontend domain for production
+  methods: ['POST', 'GET',"PUT","DELETE"],
+  allowedHeaders: ['Content-Type', 'Authorization',"Token"],
+}));
 
 app.get("/", (req, res) => {
   res.send("server is running");
