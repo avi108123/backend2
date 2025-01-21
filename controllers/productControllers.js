@@ -36,7 +36,7 @@ async function createProduct(req, res) {
 
   
 
-   fs.unlinkSync(req.file.path)
+  //  fs.unlinkSync(req.file.path)
    let userId = req.userid;
    let obj = {
     title:req.body.title,
@@ -46,9 +46,6 @@ async function createProduct(req, res) {
    }
 
 
-
-     
-    
     let newProduct = await Products.create(obj);
     res.status(200).send(newProduct);
     
